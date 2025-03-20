@@ -36,7 +36,6 @@ function BenzinTurlari() {
     }
 
     const url = `/1branch${selectt}/`;
-    console.log("So‘rov URL:", url);
     axios({
       url: `/1/branch/${selectt}/`,
       method: "POST",
@@ -47,9 +46,19 @@ function BenzinTurlari() {
         notify({ type: "Saved" });
       })
       .catch((error) => console.log(error));
-
-    console.log(data, "data11");
   };
+
+  useEffect(() => {
+    axios({
+      url: `/1/branch/${selectt}/`,
+      method: "GET",
+      data,
+    })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <section className="bg-[#f9fafb] min-h-screen">

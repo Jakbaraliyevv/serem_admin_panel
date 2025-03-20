@@ -5,7 +5,6 @@ import Dashboard from "../components/dashboard";
 function Layout1() {
   return (
     <div>
-      <Dashboard />
       <main>
         <Outlet />
       </main>
