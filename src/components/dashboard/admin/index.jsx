@@ -96,23 +96,22 @@ const BranchStats = () => {
             {data2 &&
               Array.isArray(data2) &&
               data2.map((value) => (
-                <Link
-                  to={"/dashboard/benzin-turlari"}
-                  key={value.id}
-                  className="flex flex-col gap-2"
-                >
-                  <button
-                    className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 ${
-                      selectedBranch === value.name
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                    }`}
-                    onClick={() => {
-                      setSelectedBranch(value.name);
-                    }}
-                  >
-                    {value.name}
-                  </button>
+                <div key={value.id} className="flex flex-col gap-2">
+                  <Link to="/dashboard/benzin-turlari">
+                    <div
+                      className={`px-4 py-2 rounded-md font-medium transition-colors duration-200 cursor-pointer ${
+                        selectedBranch === value.name
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                      }`}
+                      onClick={() => {
+                        setSelectedBranch(value.name);
+                      }}
+                    >
+                      {value.name}
+                    </div>
+                  </Link>
+
                   <div className="flex gap-2 mt-1">
                     <Button
                       size="small"
@@ -131,7 +130,7 @@ const BranchStats = () => {
                       </Button>
                     </Popconfirm>
                   </div>
-                </Link>
+                </div>
               ))}
           </div>
         </div>
